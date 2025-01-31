@@ -13,7 +13,15 @@
 
 <record id="view_transformaciones_tree" model="ir.ui.view">
     <field name="name">dragon_ball.transformaciones.tree</field>
-    <field name="model">dragon_ball.transformaciones</f
+    <field name="model">dragon_ball.transformaciones</field>
+    <field name="arch" type="xml">
+        <tree string="Transformaciones">
+            <field name="name"/>
+            <field name="descripcion"/>
+            <field name="requisitos"/>
+            <field name="multiplicador"/>
+        </tree>
+    </field>
 </record>
 
 
