@@ -63,6 +63,7 @@
                 <field name="poder_base"/>
                 <field name="poder_total"/>
                 <field name="transformaciones_id" widget="many2one" options="{'no_create': True}" string="Transformación" domain="[]" placeholder="Seleccione la transformación" context="{'default_name': 'name'}"/>
+                <field name="sequence" widget="handle"/>
             </tree>
         </field>
     </record>
@@ -85,7 +86,7 @@
                         <div class="oe_kanban_global_click">
                             <!-- Mostrar la imagen directamente con base64 -->
                             <div class="o_kanban_image">
-                                <img t-att-src="'data:image/png;base64,' + record.imagen.raw_value" alt="Imagen" height="80px" width="60px"/>
+                                <img t-att-src="'data:image/png;base64,' + record.imagen" alt="Imagen" height="80px" width="60px"/>
                             </div>
                             <!-- Mostrar otros campos -->
                             <strong t-esc="record.name.raw_value"/>

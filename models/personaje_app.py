@@ -20,6 +20,8 @@ class Personaje_Model(models.Model):
     control_ki = fields.Integer(string="Control de Ki", default=50)
     experiencia_batalla = fields.Integer(string="Experiencia de Batalla", default=0)
     imagen = fields.Binary("Imagen", attachment=True)
+
+    sequence = fields.Integer(string="Orden", default=10)
     
     # Relación con Transformación: cada personaje tiene una única transformación
     transformaciones_id = fields.Many2one('dragon_ball.transformaciones', string="Transformación", ondelete='set null')
