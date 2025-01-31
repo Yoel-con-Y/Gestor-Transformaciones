@@ -9,6 +9,15 @@ class Transformaciones_Model(models.Model):
     descripcion = fields.Text('Descripción', help='Introduce una descripción de la transformación')
     requisitos = fields.Text('Requisitos', help='Requisitos para alcanzar esta transformación')
     multiplicador = fields.Float('Multiplicador', default=1.0, help='Multiplicador al poder base del personaje')
+
+    # Nuevo campo para las razas necesarias
+    raza_necessary_ids = fields.Many2many(
+        'personaje.model',  # El modelo de los personajes
+        'transformaciones_raza_rel',  # Relación intermedia entre transformaciones y razas
+        'transformacion_id',  # Nombre de la columna en la tabla intermedia que apunta a las transformaciones
+        'personaje_id',  # Nombre de la columna en la tabla intermedia que apunta a las razas
+        string='Razas necesarias'
+    )
     
     # Relación inversa: un personaje puede tener una transformación
     personaje_ids = fields.One2many('personaje.model', 'transformaciones_id', string="Personajes")
