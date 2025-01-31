@@ -81,10 +81,9 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
-                            <!-- Mostrar la imagen -->
+                            <!-- Mostrar la imagen directamente con base64 -->
                             <div class="o_kanban_image">
-                                <!-- Asegúrate de que la imagen sea accesible usando el widget adecuado -->
-                                <img t-att-src="kanban_image('personaje.model', 'image', record.id)" alt="Imagen" height="80px" width="60px"/>
+                                <img t-att-src="'data:image/png;base64,' + record.imagen.raw_value" alt="Imagen" height="80px" width="60px"/>
                             </div>
                             <!-- Mostrar otros campos -->
                             <strong t-esc="record.nombre.raw_value"/>

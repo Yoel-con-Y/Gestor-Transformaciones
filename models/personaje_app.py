@@ -21,7 +21,7 @@ class Personaje_Model(models.Model):
     poder_base = fields.Integer(string="Poder Base", default=1000)
     control_ki = fields.Integer(string="Control de Ki", default=50)
     experiencia_batalla = fields.Integer(string="Experiencia de Batalla", default=0)
-    imagen = fields.Binary("Imagen")
+    imagen = fields.Binary("Imagen", attachment=True)
 '''
     # Relación con modelo Transformaciones, habilitar cuando sepamos que funcionan ambos?
     transformation_ids = fields.One2many(
