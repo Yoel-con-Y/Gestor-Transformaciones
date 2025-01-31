@@ -1,7 +1,7 @@
 from odoo import models, fields
 
-class Transformation_Model(models.Model):
-    _name = 'dragon_ball.transformation'
+class Transformaciones_Model(models.Model):
+    _name = 'dragon_ball.transformaciones'
     _description = "Transformaciones de personajes"
 
     # Campos
@@ -11,6 +11,6 @@ class Transformation_Model(models.Model):
     multiplicador = fields.Float('Multiplicador', default=1.0, help='Multiplicador al poder base del personaje')
     
     # Relación inversa: un personaje puede tener una transformación
-    personaje_ids = fields.One2many('personaje.model', 'transformation_id', string="Personajes")
+    personaje_ids = fields.One2many('personaje.model', 'transformaciones_id', string="Personajes")
 
     
