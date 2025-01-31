@@ -1,1 +1,1 @@
-from . import personaje_app
+from . import personaje_app, transformaciones_app
