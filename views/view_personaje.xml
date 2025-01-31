@@ -10,11 +10,11 @@
         parent="menu_personaje_model"
         sequence="1" />
 
-    <!-- Acción para abrir el modelo en las vistas de árbol y formulario -->
+    <!-- Acción para abrir el modelo en las vistas de árbol, formulario y kanban -->
     <record id="action_personaje_model" model="ir.actions.act_window">
         <field name="name">Gestión de personajes</field>
         <field name="res_model">personaje.model</field>
-        <field name="view_mode">tree,form</field> <!-- Añadido tree aquí -->
+        <field name="view_mode">tree,form,kanban</field> <!-- Añadido kanban aquí -->
         <field name="target">current</field>
     </record>
 
@@ -62,6 +62,35 @@
                 <field name="control_ki"/>
                 <field name="experiencia_batalla"/>
             </tree>
+        </field>
+    </record>
+
+    <!-- Vista Kanban -->
+    <record id="view_personaje_kanban" model="ir.ui.view">
+        <field name="name">personaje.model.kanban</field>
+        <field name="model">personaje.model</field>
+        <field name="arch" type="xml">
+            <kanban string="Personajes">
+                <field name="nombre"/>
+                <field name="descripcion"/>
+                <field name="raza"/>
+                <field name="poder_base"/>
+                <field name="control_ki"/>
+                <field name="experiencia_batalla"/>
+                <field name="imagen"/> <!-- Campo de imagen añadido -->
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_details">
+                            <div class="oe_kanban_image">
+                                <img t-att-src="record.imagen.raw_value" alt="Imagen del personaje" style="max-height: 150px;"/>
+                            </div>
+                            <strong t-field="record.nombre"/>
+                            <div t-field="record.descripcion"/>
+                            <div t-field="record.raza"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 </odoo>
