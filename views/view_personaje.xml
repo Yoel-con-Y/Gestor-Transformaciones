@@ -33,13 +33,13 @@
             <form string="Personaje de Dragon Ball">
                 <sheet>
                     <group>
-                        <field name="nombre"/>
+                        <field name="name"/>
                         <field name="descripcion"/>
                         <field name="raza"/>
                         <field name="poder_base"/>
                         <field name="control_ki"/>
                         <field name="experiencia_batalla"/>
-                        <field name="transformaciones_id" widget="many2one" options="{'no_create': True}" string="Transformación" domain="[]" placeholder="Seleccione la transformación" context="{'default_nombre': 'nombre'}"/>
+                        <field name="transformaciones_id" widget="many2one" options="{'no_create': True}" string="Transformación" domain="[]" placeholder="Seleccione la transformación" context="{'default_name': 'name'}"/>
                         <field name="poder_total" readonly="1"/> <!-- Campo de poder total -->
                     </group>
                     <group>
@@ -57,12 +57,12 @@
         <field name="model">personaje.model</field>
         <field name="arch" type="xml">
             <tree string="Personajes">
-                <field name="nombre"/>
+                <field name="name"/>
                 <field name="descripcion"/>
                 <field name="raza"/>
                 <field name="poder_base"/>
                 <field name="poder_total"/>
-                <field name="transformaciones_id" widget="many2one" options="{'no_create': True}" string="Transformación" domain="[]" placeholder="Seleccione la transformación" context="{'default_nombre': 'nombre'}"/>
+                <field name="transformaciones_id" widget="many2one" options="{'no_create': True}" string="Transformación" domain="[]" placeholder="Seleccione la transformación" context="{'default_name': 'name'}"/>
             </tree>
         </field>
     </record>
@@ -73,7 +73,7 @@
         <field name="model">personaje.model</field>
         <field name="arch" type="xml">
             <kanban string="Personajes">
-                <field name="nombre"/>
+                <field name="name"/>
                 <field name="descripcion"/>
                 <field name="raza"/>
                 <field name="poder_base"/>
@@ -88,7 +88,7 @@
                                 <img t-att-src="'data:image/png;base64,' + record.imagen.raw_value" alt="Imagen" height="80px" width="60px"/>
                             </div>
                             <!-- Mostrar otros campos -->
-                            <strong t-esc="record.nombre.raw_value"/>
+                            <strong t-esc="record.name.raw_value"/>
                             <div t-esc="record.descripcion.raw_value"/>
                             <div t-esc="record.raza.raw_value"/>
                         </div>

@@ -16,7 +16,7 @@
     <field name="model">dragon_ball.transformaciones</field>
     <field name="arch" type="xml">
         <tree string="Transformaciones">
-            <field name="nombre"/>
+            <field name="name"/>
             <field name="descripcion"/>
             <field name="requisitos"/>
             <field name="multiplicador"/>

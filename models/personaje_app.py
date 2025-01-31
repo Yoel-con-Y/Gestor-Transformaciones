@@ -5,7 +5,7 @@ class Personaje_Model(models.Model):
     _description = "Personajes de Dragon Ball Z"
 
     # Campos
-    nombre = fields.Char('Nombre', required=True)
+    name = fields.Char('Nombre', required=True)
     descripcion = fields.Text('Descripción', help='Introduce una descripción del personaje')
     raza = fields.Selection([
         ('saiyan', 'Saiyan'),
