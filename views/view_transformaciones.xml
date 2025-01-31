@@ -1,4 +1,5 @@
-<menuitem id="menu_transformaciones_model"
+<odoo>
+    <menuitem id="menu_transformaciones_model"
           name="Transformaciones"
           parent="menu_personaje_model"
           sequence="2" />
@@ -15,3 +16,5 @@
           parent="menu_personaje_model"
           action="action_transformaciones_model"
           sequence="2" />
+
+</odoo>
