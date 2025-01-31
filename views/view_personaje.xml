@@ -39,7 +39,7 @@
                         <field name="poder_base"/>
                         <field name="control_ki"/>
                         <field name="experiencia_batalla"/>
-                        <field name="transformaciones_id" placeholder="Seleccione la transformación"/>
+                        <field name="transformaciones_id" widget="many2one" options="{'no_create': True}" string="Transformación" placeholder="Seleccione la transformación"/>
                         <field name="poder_total" readonly="1"/> <!-- Campo de poder total -->
                     </group>
                     <group>
@@ -62,7 +62,7 @@
                 <field name="raza"/>
                 <field name="poder_base"/>
                 <field name="poder_total"/>
-                <field name="transformaciones_id"/>
+                <field name="transformaciones_id" widget="many2one" options="{'no_create': True}" string="Transformación"/>
             </tree>
         </field>
     </record>
