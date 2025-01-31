@@ -1,0 +1,61 @@
+<odoo>
+<!-- Menú Principal -->
+    <menuitem id="menu_personaje_model"
+        name="Gestor de transformaciones"
+        sequence="1" />
+
+    <!-- Submenú -->
+    <menuitem id="submenu_personaje_model"
+        name="Gestión de personajes"
+        parent="menu_personaje_model"
+        sequence="1" />
+
+    <!-- Acción para abrir el modelo en la vista de formulario y árbol -->
+    <record id="action_personaje_model" model="ir.actions.act_window">
+        <field name="name">Gestión de personajes</field>
+        <field name="res_model">personaje.model</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+    <!-- Asociar la acción al submenú -->
+    <menuitem id="menu_personaje_model_action"
+              name="Gestión de personajes"
+              parent="menu_personaje_model"
+              action="action_personaje_model"
+              sequence="1" />
+              
+    <!-- Vista formulario -->
+    <record id="view_personaje_form" model="ir.ui.view">
+        <field name="name">personaje.model.form</field>
+        <field name="model">personaje.model</field>
+        <field name="arch" type="xml">
+            <form string="Personaje de Dragon Ball">
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="descripcion"/>
+                        <field name="raza"/>
+                        <field name="poder_base"/>
+                        <field name="control_ki"/>
+                        <field name="experiencia_batalla"/>
+                    </group>
+                    <group>
+                        <!-- Campo de imagen -->
+                        <field name="imagen" widget="image" string="Imagen del personaje" />
+                    </group>
+                    <!--<notebook>
+                        <page string="Transformaciones">
+                            <field name="transformation_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="multiplier"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook> -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
