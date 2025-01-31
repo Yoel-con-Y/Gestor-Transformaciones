@@ -11,26 +11,6 @@
     <field name="target">current</field>
 </record>
 
-<record id="view_transformaciones_form" model="ir.ui.view">
-    <field name="name">dragon_ball.transformaciones.form</field>
-    <field name="model">dragon_ball.transformaciones</field>
-    <field name="arch" type="xml">
-        <form string="Transformación">
-            <sheet>
-                <group>
-                    <field name="nombre" />
-                    <field name="descripcion" />
-                    <field name="requisitos" />
-                    <field name="multiplicador" />
-                    <!-- Nuevo campo para razas necesarias -->
-                    <field name="raza_necessary_ids" widget="many2many_tags" options="{'no_create': True}" placeholder="Selecciona las razas necesarias"/>
-                </group>
-            </sheet>
-        </form>
-    </field>
-</record>
-
-
 <record id="view_transformaciones_tree" model="ir.ui.view">
     <field name="name">dragon_ball.transformaciones.tree</field>
     <field name="model">dragon_ball.transformaciones</field>
