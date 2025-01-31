@@ -1,6 +1,6 @@
 <odoo>
     <!-- Submenú para Ver las Transformaciones -->
-    <menuitem id="submenu_transformaciones_model"
+    <menuitem id="menu_transformaciones_model"
               name="Transformaciones"
               parent="menu_personaje_model"
               sequence="2" />
