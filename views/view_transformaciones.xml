@@ -2,13 +2,13 @@
     <!-- Menú Principal para Transformaciones -->
     <menuitem id="menu_transformaciones_model"
               name="Gestión de Transformaciones"
-              sequence="1" />
+              sequence="2" />
 
     <!-- Submenú para Ver las Transformaciones -->
     <menuitem id="submenu_transformaciones_model"
               name="Transformaciones"
               parent="menu_transformaciones_model"
-              sequence="1" />
+              sequence="2" />
 
     <!-- Acción para Mostrar las Transformaciones -->
     <record id="action_transformaciones_model" model="ir.actions.act_window">
