@@ -80,11 +80,11 @@
                 <field name="imagen"/> <!-- Campo de imagen añadido -->
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_details">
+                        <div class="oe_kanban_global_click">
                             <!-- Mostrar la imagen -->
-                            <div class="oe_kanban_image">
+                            <div class="o_kanban_image">
                                 <!-- Asegúrate de que la imagen sea accesible usando el widget adecuado -->
-                                <img t-att-src="'data:image/png;base64,' + record.imagen.raw_value" alt="Imagen del personaje" style="max-height: 150px;"/>
+                                <img t-att-src="kanban_image('personaje.model', 'image', record.id.raw_value)" alt="Imagen" height="80px" width="60px"/>
                             </div>
                             <!-- Mostrar otros campos -->
                             <strong t-esc="record.nombre.raw_value"/>
