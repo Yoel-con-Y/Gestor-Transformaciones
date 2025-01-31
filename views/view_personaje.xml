@@ -83,7 +83,8 @@
                         <div class="oe_kanban_details">
                             <!-- Mostrar la imagen -->
                             <div class="oe_kanban_image">
-                                <img t-att-src="record.imagen.raw_value" alt="Imagen del personaje" style="max-height: 150px;"/>
+                                <!-- Asegúrate de que la imagen sea accesible usando el widget adecuado -->
+                                <img t-att-src="'data:image/png;base64,' + record.imagen.raw_value" alt="Imagen del personaje" style="max-height: 150px;"/>
                             </div>
                             <!-- Mostrar otros campos -->
                             <strong t-esc="record.nombre.raw_value"/>
