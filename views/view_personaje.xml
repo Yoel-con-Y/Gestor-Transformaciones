@@ -84,7 +84,7 @@
                             <!-- Mostrar la imagen -->
                             <div class="o_kanban_image">
                                 <!-- Asegúrate de que la imagen sea accesible usando el widget adecuado -->
-                                <img t-att-src="kanban_image('personaje.model', 'image', record.id.raw_value)" alt="Imagen" height="80px" width="60px"/>
+                                <img t-att-src="kanban_image('personaje.model', 'image', record.id)" alt="Imagen" height="80px" width="60px"/>
                             </div>
                             <!-- Mostrar otros campos -->
                             <strong t-esc="record.nombre.raw_value"/>
