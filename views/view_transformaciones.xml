@@ -8,7 +8,6 @@
     <menuitem id="submenu_transformaciones_model"
               name="Transformaciones"
               parent="menu_transformaciones_model"
-              action="action_transformaciones_model"
               sequence="1" />
 
     <!-- Acción para Mostrar las Transformaciones -->
