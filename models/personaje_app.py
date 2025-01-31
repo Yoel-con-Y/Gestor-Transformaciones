@@ -17,7 +17,11 @@ class Personaje_Model(models.Model):
         ('other', 'Otro'),
     ], string="Raza", required=True)
     poder_base = fields.Integer(string="Poder Base", default=1000)
-    control_ki = fields.Integer(string="Control de Ki", default=50)
+        control_ki = fields.Selection([
+        ('perfect', 'Control Total'),
+        ('stable', 'Control Estable'),
+        ('unstable', 'Control Inestable'),
+    ], string="Control de Ki", required=True)
     experiencia_batalla = fields.Integer(string="Experiencia de Batalla", default=0)
     imagen = fields.Binary("Imagen", attachment=True)
 
