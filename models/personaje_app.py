@@ -17,7 +17,8 @@ class Personaje_Model(models.Model):
         ('other', 'Otro'),
     ], string="Raza", required=True)
     poder_base = fields.Integer(string="Poder Base", default=1000)
-        control_ki = fields.Selection([
+    
+    control_ki = fields.Selection([
         ('perfect', 'Control Total'),
         ('stable', 'Control Estable'),
         ('unstable', 'Control Inestable'),
