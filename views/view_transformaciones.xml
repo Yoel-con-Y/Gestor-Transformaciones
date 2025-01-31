@@ -1,13 +1,8 @@
 <odoo>
-    <!-- Menú Principal para Transformaciones -->
-    <menuitem id="menu_transformaciones_model"
-              name="Gestión de Transformaciones"
-              sequence="2" />
-
     <!-- Submenú para Ver las Transformaciones -->
     <menuitem id="submenu_transformaciones_model"
               name="Transformaciones"
-              parent="menu_transformaciones_model"
+              parent="menu_personaje_model"
               sequence="2" />
 
     <!-- Acción para Mostrar las Transformaciones -->
@@ -17,7 +12,6 @@
         <field name="view_mode">tree,form</field> <!-- Las vistas disponibles para esta acción -->
         <field name="target">current</field>
     </record>
-
 
     <!-- Vista Árbol para Transformaciones -->
     <record id="view_transformaciones_tree" model="ir.ui.view">
@@ -30,6 +24,24 @@
                 <field name="multiplicador"/>
                 <field name="requisitos"/>
             </tree>
+        </field>
+    </record>
+
+    <!-- Vista Formulario para Transformaciones -->
+    <record id="view_transformaciones_form" model="ir.ui.view">
+        <field name="name">dragon_ball.transformaciones.form</field> <!-- Nombre único de la vista -->
+        <field name="model">dragon_ball.transformaciones</field>
+        <field name="arch" type="xml">
+            <form string="Transformación">
+                <sheet>
+                    <group>
+                        <field name="nombre" />
+                        <field name="descripcion" />
+                        <field name="requisitos" />
+                        <field name="multiplicador" />
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 </odoo>
