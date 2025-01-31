@@ -25,14 +25,13 @@ class Personaje_Model(models.Model):
     transformation_id = fields.Many2one('dragon_ball.transformation', string="Transformación", ondelete='set null')
 
     # Campo calculado: Poder total del personaje, basado en el multiplicador de la transformación
-    poder_total = fields.Float(string="Poder Total", compute="_compute_poder_total", store=True)
+    poder_total = fields.Integer('Poder Total', compute='_compute_poder_total', store=True)
 
-    @api.depends('transformation_id', 'poder_base')
+    @api.depends('poder_base', 'transformation_id.multiplicador')
     def _compute_poder_total(self):
         for record in self:
             if record.transformation_id:
-                # Multiplicamos el poder base por el multiplicador de la transformación
                 record.poder_total = record.poder_base * record.transformation_id.multiplicador
             else:
-                # Si no tiene transformación, el poder total es igual al poder base
                 record.poder_total = record.poder_base
+

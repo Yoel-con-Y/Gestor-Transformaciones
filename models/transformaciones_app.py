@@ -11,7 +11,6 @@ class Transformation_Model(models.Model):
     multiplicador = fields.Float('Multiplicador', default=1.0, help='Multiplicador al poder base del personaje')
     
     # Relación inversa: un personaje puede tener una transformación
-    character_ids = fields.Many2many(
-        'personaje.model', 'transformation_character_rel', 'transformation_id', 'character_id', 
-        string="Personajes"
-    )
+    personaje_ids = fields.One2many('personaje.model', 'transformation_id', string="Personajes")
+
+    
