@@ -5,7 +5,7 @@ class Transformaciones_Model(models.Model):
     _description = "Transformaciones de personajes"
 
     # Campos
-    name = fields.Char('Nombre', required=True)
+    name = fields.Char('Name', required=True)
     descripcion = fields.Text('Descripción', help='Introduce una descripción de la transformación')
     requisitos = fields.Text('Requisitos', help='Requisitos para alcanzar esta transformación')
     multiplicador = fields.Float('Multiplicador', default=1.0, help='Multiplicador al poder base del personaje')
