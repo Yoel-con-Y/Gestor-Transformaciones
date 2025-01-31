@@ -1,28 +1,17 @@
 from odoo import models, fields
 
-class Transformaciones_Model(models.Model):
-    _name = "transformaciones.model"
-    _description = "App que permite gestionar la compra/venta de viviendas"
+class Transformation_Model(models.Model):
+    _name = 'dragon_ball.transformation'
+    _description = "Transformaciones de personajes"
 
-    # Campos básicos
-    name = fields.Char('Nombre', required=True)
-    descripcion = fields.Text('Descripción', help='Introduce una descripción de la propiedad')
-    cpostal = fields.Char('Código Postal', required=True)
-    fecha_disponible = fields.Date('Fecha disponible')
-    precio_inicial = fields.Float('Precio inicial', required=True)
-    precio_venta = fields.Float('Precio venta', required=True)
-    habitaciones = fields.Integer('Nº habitaciones', required=True)
-    m_utiles = fields.Integer('Metros útiles', required=True)
-    garage = fields.Boolean('Garage')
-    jardin = fields.Boolean('Jardín')
-    m_jardin = fields.Integer('Metros jardín')
-    orientacion = fields.Selection(
-        string='Orientación',
-        selection=[('norte', 'Norte'), ('sur', 'Sur'), ('este', 'Este'), ('oeste', 'Oeste')])
-
-    # Campos adicionales para los widgets
-    color = fields.Char('Color')  # Campo para el widget 'color'
-    status = fields.Selection(
-        [('draft', 'Borrador'), ('sold', 'Vendido')],
-        default='draft', string='Estado')  # Campo para el widget 'statusbar'
-    imagen_vivienda = fields.Binary("Imagen de Vivienda", attachment=True)
+    # Campos
+    nombre = fields.Char('Nombre', required=True)
+    descripcion = fields.Text('Descripción', help='Introduce una descripción de la transformación')
+    requisitos = fields.Text('Requisitos', help='Requisitos para alcanzar esta transformación')
+    multiplicador = fields.Float('Multiplicador', default=1.0, help='Multiplicador al poder base del personaje')
+    
+    # Relación inversa: un personaje puede tener una transformación
+    character_ids = fields.Many2many(
+        'personaje.model', 'transformation_character_rel', 'transformation_id', 'character_id', 
+        string="Personajes"
+    )

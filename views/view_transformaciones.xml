@@ -1,120 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- Menú Principal -->
-    <menuitem id="menu_transformaciones_root" name="Gestor de transformaciones" sequence="1" />
+    <!-- Menú Principal para Transformaciones -->
+    <menuitem id="menu_transformacion_model"
+              name="Gestión de Transformaciones"
+              sequence="1" />
 
-    <!-- Submenú -->
-    <menuitem id="menu_transformaciones_model" name="Gestión de Viviendas"
-              parent="menu_transformaciones_root" sequence="1" />
+    <!-- Submenú para Ver las Transformaciones -->
+    <menuitem id="submenu_transformacion_model"
+              name="Transformaciones"
+              parent="menu_transformacion_model"
+              action="action_transformation_model"
+              sequence="1" />
 
-    <!-- Acción para abrir el modelo en la vista de formulario y árbol -->
-    <record id="action_transformaciones_model" model="ir.actions.act_window">
+    <!-- Acción para Mostrar las Transformaciones -->
+    <record id="action_transformation_model" model="ir.actions.act_window">
         <field name="name">Gestión de Transformaciones</field>
-        <field name="res_model">transformaciones.model</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="res_model">dragon_ball.transformation</field>
+        <field name="view_mode">tree,form</field>
         <field name="target">current</field>
     </record>
 
-    <!-- Asociar la acción al submenú -->
-    <menuitem id="menu_transformaciones_model_action"
-              name="Gestión de Transformaciones"
-              parent="menu_transformaciones_model"
-              action="action_transformaciones_model"
-              sequence="1" />
-
-
-    <!-- Vista Árbol (Lista) -->
-    <record id="view_transformaciones_model_tree" model="ir.ui.view">
-        <field name="name">transformaciones.model.tree</field>
-        <field name="model">transformaciones.model</field>
+    <!-- Vista Árbol para Transformaciones -->
+    <record id="view_transformation_tree" model="ir.ui.view">
+        <field name="name">dragon_ball.transformation.tree</field>
+        <field name="model">dragon_ball.transformation</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="cpostal"/>
-                <field name="precio_venta"/>
+            <tree string="Transformaciones">
+                <field name="nombre"/>
+                <field name="descripcion"/>
+                <field name="multiplicador"/>
+                <field name="requisitos"/>
             </tree>
         </field>
     </record>
-
-<!-- Vista Formulario con Imagen -->
-<record id="view_transformaciones_model_form" model="ir.ui.view">
-    <field name="name">transformaciones.model.form</field>
-    <field name="model">transformaciones.model</field>
-    <field name="arch" type="xml">
-        <form string="Gestión de Transformaciones">
-            <sheet>
-                <group>
-                    <field name="name" string="Nombre"/>
-                    <field name="descripcion" string="Descripción"/>
-                    <field name="cpostal" string="Código Postal"/>
-                    <field name="precio_inicial" string="Precio Inicial" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                    <field name="precio_venta" string="Precio de Venta" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                </group>
-                <group>
-                    <field name="habitaciones" string="Número de Habitaciones"/>
-                    <field name="m_utiles" string="Metros Útiles"/>
-                    <field name="orientacion" string="Orientación"/>
-                </group>
-                <group>
-                    <field name="status" string="Estado" widget="statusbar" options="{'clickable': True}"/>
-                    <field name="color" string="Color" widget="color"/>
-                </group>
-                <group>
-                    <field name="fecha_disponible" string="Fecha Disponible" widget="date"/>
-                    <field name="garage" string="Garage"/>
-                    <field name="jardin" string="Jardín"/>
-                </group>
-                <group>
-                    <!-- Campo de imagen -->
-                    <field name="imagen_vivienda" widget="image" string="Imagen de Vivienda" />
-                </group>
-            </sheet>
-        </form>
-    </field>
-</record>
-
-    <!-- Vista Kanban -->
-    <record id="view_transformaciones_model_kanban" model="ir.ui.view">
-    <field name="name">transformaciones.model.kanban</field>
-    <field name="model">transformaciones.model</field>
-    <field name="arch" type="xml">
-        <kanban 
-            default_group_by="status" 
-            default_order="precio_venta desc"
-            group_create="True" 
-            group_delete="True" 
-            group_edit="True"
-            archivable="True"
-            records_draggable="True"
-            quick_create="True">
-            
-            <field name="name"/>
-            <field name="descripcion"/>
-            <field name="cpostal"/>
-            <field name="imagen_vivienda"/>
-            
-            <templates>
-                <t t-name="kanban-box">
-                    <div class="oe_kanban_global_click">
-                        <!-- Imagen de la vivienda -->
-                        <div class="o_kanban_image">
-                            <img t-att-src="kanban_image('transformaciones.model','imagen_vivienda',record.id)" alt="Image" height="80px" width="60px"/>
-                        </div>
-                        
-                        <!-- Detalles del registro -->
-                        <div class="oe_kanban_details">
-                            <ul>
-                                <li><strong>Nombre:</strong> <field name="name"/></li>
-                                <li><strong>Descripción:</strong> <field name="descripcion"/></li>
-                                <li><strong>Código Postal:</strong> <field name="cpostal"/></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </t>
-            </templates>
-        </kanban>
-    </field>
-</record>
-
 </odoo>

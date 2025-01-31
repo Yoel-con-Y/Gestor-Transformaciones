@@ -1,11 +1,9 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
-# He hecho que este sea el modelo principal... creo
 class Personaje_Model(models.Model):
     _name = "personaje.model"   # identificador del modelo
     _description = "Personajes de Dragon Ball Z"
 
-    
     # Campos
     nombre = fields.Char('Nombre', required=True)
     descripcion = fields.Text('Descripción', help='Introduce una descripción del personaje')
@@ -22,8 +20,19 @@ class Personaje_Model(models.Model):
     control_ki = fields.Integer(string="Control de Ki", default=50)
     experiencia_batalla = fields.Integer(string="Experiencia de Batalla", default=0)
     imagen = fields.Binary("Imagen", attachment=True)
-'''
-    # Relación con modelo Transformaciones, habilitar cuando sepamos que funcionan ambos?
-    transformation_ids = fields.One2many(
-        'dragon_ball.transformation', 'character_id', string="Transformaciones"
-    )'''
+    
+    # Relación con Transformación: cada personaje tiene una única transformación
+    transformation_id = fields.Many2one('dragon_ball.transformation', string="Transformación", ondelete='set null')
+
+    # Campo calculado: Poder total del personaje, basado en el multiplicador de la transformación
+    poder_total = fields.Float(string="Poder Total", compute="_compute_poder_total", store=True)
+
+    @api.depends('transformation_id', 'poder_base')
+    def _compute_poder_total(self):
+        for record in self:
+            if record.transformation_id:
+                # Multiplicamos el poder base por el multiplicador de la transformación
+                record.poder_total = record.poder_base * record.transformation_id.multiplicador
+            else:
+                # Si no tiene transformación, el poder total es igual al poder base
+                record.poder_total = record.poder_base

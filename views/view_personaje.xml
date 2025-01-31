@@ -39,6 +39,8 @@
                         <field name="poder_base"/>
                         <field name="control_ki"/>
                         <field name="experiencia_batalla"/>
+                        <field name="transformation_id" placeholder="Seleccione la transformación"/>
+                        <field name="poder_total" readonly="1"/> <!-- Campo de poder total -->
                     </group>
                     <group>
                         <!-- Campo de imagen -->
@@ -59,8 +61,8 @@
                 <field name="descripcion"/>
                 <field name="raza"/>
                 <field name="poder_base"/>
-                <field name="control_ki"/>
-                <field name="experiencia_batalla"/>
+                <field name="poder_total"/>
+                <field name="transformation_id"/>
             </tree>
         </field>
     </record>
