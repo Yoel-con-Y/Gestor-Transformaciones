@@ -15,14 +15,14 @@ class Personaje_Model(models.Model):
         ('android', 'Androide'),
         ('demon', 'Demonio'),
         ('other', 'Otro'),
-    ], string="Raza", required=True)
+    ], string="Raza", required=False)
     poder_base = fields.Integer(string="Poder Base", default=1000)
-    
+
     control_ki = fields.Selection([
         ('perfect', 'Control Total'),
         ('stable', 'Control Estable'),
         ('unstable', 'Control Inestable'),
-    ], string="Control de Ki", required=True)
+    ], string="Control de Ki", required=False)
     experiencia_batalla = fields.Integer(string="Experiencia de Batalla", default=0)
     imagen = fields.Binary("Imagen", attachment=True)
 
