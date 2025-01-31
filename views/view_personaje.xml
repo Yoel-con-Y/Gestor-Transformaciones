@@ -81,12 +81,14 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_details">
+                            <!-- Mostrar la imagen -->
                             <div class="oe_kanban_image">
                                 <img t-att-src="record.imagen.raw_value" alt="Imagen del personaje" style="max-height: 150px;"/>
                             </div>
-                            <strong t-field="record.nombre"/>
-                            <div t-field="record.descripcion"/>
-                            <div t-field="record.raza"/>
+                            <!-- Mostrar otros campos -->
+                            <strong t-esc="record.nombre.raw_value"/>
+                            <div t-esc="record.descripcion.raw_value"/>
+                            <div t-esc="record.raza.raw_value"/>
                         </div>
                     </t>
                 </templates>
