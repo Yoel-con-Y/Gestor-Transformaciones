@@ -86,7 +86,7 @@
                         <div class="oe_kanban_global_click">
                             <!-- Mostrar la imagen directamente con base64 -->
                             <div class="o_kanban_image">
-                                <img t-att-src="'data:image/png;base64,' + record.imagen" alt="Imagen" height="80px" width="60px"/>
+                                <img t-att-src="kanban_image('personaje.model', 'imagen', record.id)" alt="Imagen" height="80px" width="60px"/>
                             </div>
                             <!-- Mostrar otros campos -->
                             <strong t-esc="record.name.raw_value"/>
